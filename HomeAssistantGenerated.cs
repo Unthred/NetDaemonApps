@@ -593,6 +593,8 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity LivingroomWindowOneSensorContact => new(_haContext, "binary_sensor.livingroom_window_one_sensor_contact");
 		///<summary>Livingroom Window Two Sensor contact</summary>
 		public BinarySensorEntity LivingroomWindowTwoSensorContact => new(_haContext, "binary_sensor.livingroom_window_two_sensor_contact");
+		///<summary>Manager Test</summary>
+		public BinarySensorEntity ManagerTest => new(_haContext, "binary_sensor.manager_test");
 		///<summary>Monitors Button</summary>
 		public BinarySensorEntity MonitorsButton => new(_haContext, "binary_sensor.monitors_button");
 		///<summary>Mr Spoon Router led</summary>
@@ -951,6 +953,16 @@ namespace HomeAssistantGenerated
 		public InputBooleanEntity DeebotWeeBear => new(_haContext, "input_boolean.deebot_wee_bear");
 		///<summary>Development Mode</summary>
 		public InputBooleanEntity DevMode => new(_haContext, "input_boolean.dev_mode");
+		///<summary>dev_netdaemon_apps_concurrency_test_app</summary>
+		public InputBooleanEntity DevNetdaemonAppsConcurrencyTestApp => new(_haContext, "input_boolean.dev_netdaemon_apps_concurrency_test_app");
+		///<summary>dev_netdaemon_apps_concurrency_test_app2</summary>
+		public InputBooleanEntity DevNetdaemonAppsConcurrencyTestApp2 => new(_haContext, "input_boolean.dev_netdaemon_apps_concurrency_test_app2");
+		///<summary>dev_netdaemon_apps_hello_app</summary>
+		public InputBooleanEntity DevNetdaemonAppsHelloApp => new(_haContext, "input_boolean.dev_netdaemon_apps_hello_app");
+		///<summary>dev_netdaemon_apps_yaml_app</summary>
+		public InputBooleanEntity DevNetdaemonAppsYamlApp => new(_haContext, "input_boolean.dev_netdaemon_apps_yaml_app");
+		///<summary>dev_netdaemon_debug_host_apps_extensions_mqtt_entity_manager_app</summary>
+		public InputBooleanEntity DevNetdaemonDebugHostAppsExtensionsMqttEntityManagerApp => new(_haContext, "input_boolean.dev_netdaemon_debug_host_apps_extensions_mqtt_entity_manager_app");
 		///<summary>dev_netdaemon_net_daemon_apps_apps_squiggley_apps_flash_light_on_movement</summary>
 		public InputBooleanEntity DevNetdaemonNetDaemonAppsAppsSquiggleyAppsFlashLightOnMovement => new(_haContext, "input_boolean.dev_netdaemon_net_daemon_apps_apps_squiggley_apps_flash_light_on_movement");
 		///<summary>Device Tracker Logging</summary>
@@ -1909,7 +1921,7 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity PlexPlexForAndroidTvShieldAndroidTv => new(_haContext, "media_player.plex_plex_for_android_tv_shield_android_tv");
 		///<summary>Plex (Plex for Android (TV) - Marvin)</summary>
 		public MediaPlayerEntity PlexPlexForAndroidTvShieldAndroidTv2 => new(_haContext, "media_player.plex_plex_for_android_tv_shield_android_tv_2");
-		///<summary>Plex (Squiggley - Plex for Android (TV) - Zaphod)</summary>
+		///<summary>Plex (Plex for Android (TV) - Zaphod)</summary>
 		public MediaPlayerEntity PlexPlexForAndroidTvZaphod => new(_haContext, "media_player.plex_plex_for_android_tv_zaphod");
 		///<summary>Plex (WeeBear - Plex for iOS - iPad)</summary>
 		public MediaPlayerEntity PlexPlexForIosIpad => new(_haContext, "media_player.plex_plex_for_ios_ipad");
@@ -3151,6 +3163,10 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity ZigupRouterLinkquality => new(_haContext, "sensor.zigup_router_linkquality");
 		///<summary>Home Off Switch action</summary>
 		public SensorEntity E0x00158d0002f99a9fAction => new(_haContext, "sensor.0x00158d0002f99a9f_action");
+		///<summary>A special kind of sensor</summary>
+		public SensorEntity ASpecialKindOfSensor => new(_haContext, "sensor.a_special_kind_of_sensor");
+		///<summary>basic_sensor</summary>
+		public SensorEntity BasicSensor => new(_haContext, "sensor.basic_sensor");
 		///<summary>Bathroom Wall Switch action</summary>
 		public SensorEntity BathroomWallSwitchAction => new(_haContext, "sensor.bathroom_wall_switch_action");
 		///<summary>Bedroom Wall Switch action</summary>
@@ -3815,6 +3831,8 @@ namespace HomeAssistantGenerated
 		public SwitchEntity HeartOfGoldVmUbuntuUsbCoolerMasterTechnologyIncAmdSr4LamplightControl => new(_haContext, "switch.heart_of_gold_vm_ubuntu_usb_cooler_master_technology_inc_amd_sr4_lamplight_control");
 		///<summary>heart-of-gold_VM_ubuntu_USB_intel_corp</summary>
 		public SwitchEntity HeartOfGoldVmUbuntuUsbIntelCorp => new(_haContext, "switch.heart_of_gold_vm_ubuntu_usb_intel_corp");
+		///<summary>Helto switch</summary>
+		public SwitchEntity HeltoSwitch => new(_haContext, "switch.helto_switch");
 		///<summary>icicles Relay</summary>
 		public SwitchEntity IciclesRelay => new(_haContext, "switch.icicles_relay");
 		///<summary>icicles Restart</summary>
@@ -4981,6 +4999,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("color_temp")]
 		public double? ColorTemp { get; init; }
 
+		[JsonPropertyName("effect")]
+		public string? Effect { get; init; }
+
 		[JsonPropertyName("effect_list")]
 		public object? EffectList { get; init; }
 
@@ -5022,6 +5043,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("rgbw_color")]
 		public object? RgbwColor { get; init; }
+
+		[JsonPropertyName("rgbww_color")]
+		public object? RgbwwColor { get; init; }
 
 		[JsonPropertyName("supported_color_modes")]
 		public object? SupportedColorModes { get; init; }
@@ -5536,9 +5560,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("Administrative Area")]
 		public string? AdministrativeArea { get; init; }
 
-		[JsonPropertyName("album_com.plexapp.android")]
-		public string? AlbumComplexappandroid { get; init; }
-
 		[JsonPropertyName("Allows VoIP")]
 		public bool? AllowsVoIP { get; init; }
 
@@ -5547,9 +5568,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("Areas Of Interest")]
 		public string? AreasOfInterest { get; init; }
-
-		[JsonPropertyName("artist_com.plexapp.android")]
-		public string? ArtistComplexappandroid { get; init; }
 
 		[JsonPropertyName("attribution")]
 		public string? Attribution { get; init; }
@@ -5571,9 +5589,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("Carrier Name")]
 		public string? CarrierName { get; init; }
-
-		[JsonPropertyName("Cellular Technology")]
-		public string? CellularTechnology { get; init; }
 
 		[JsonPropertyName("changes")]
 		public object? Changes { get; init; }
@@ -5653,9 +5668,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("duration")]
 		public double? Duration { get; init; }
 
-		[JsonPropertyName("duration_com.plexapp.android")]
-		public string? DurationComplexappandroid { get; init; }
-
 		[JsonPropertyName("elapsed")]
 		public double? Elapsed { get; init; }
 
@@ -5697,6 +5709,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("Inland Water")]
 		public string? InlandWater { get; init; }
+
+		[JsonPropertyName("in_vehicle")]
+		public double? InVehicle { get; init; }
 
 		[JsonPropertyName("is_hidden")]
 		public bool? IsHidden { get; init; }
@@ -5749,9 +5764,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("map_link")]
 		public string? MapLink { get; init; }
 
-		[JsonPropertyName("media_id_com.plexapp.android")]
-		public string? MediaIdComplexappandroid { get; init; }
-
 		[JsonPropertyName("Mobile Country Code")]
 		public string? MobileCountryCode { get; init; }
 
@@ -5772,6 +5784,12 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("Ocean")]
 		public string? Ocean { get; init; }
+
+		[JsonPropertyName("on_bicycle")]
+		public double? OnBicycle { get; init; }
+
+		[JsonPropertyName("on_foot")]
+		public double? OnFoot { get; init; }
 
 		[JsonPropertyName("opt")]
 		public double? Opt { get; init; }
@@ -5802,12 +5820,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("place_type")]
 		public string? PlaceType { get; init; }
-
-		[JsonPropertyName("playback_position_com.plexapp.android")]
-		public string? PlaybackPositionComplexappandroid { get; init; }
-
-		[JsonPropertyName("playback_state_com.plexapp.android")]
-		public string? PlaybackStateComplexappandroid { get; init; }
 
 		[JsonPropertyName("Postal Code")]
 		public string? PostalCode_0 { get; init; }
@@ -5926,9 +5938,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("time_zone_short")]
 		public string? TimeZoneShort { get; init; }
 
-		[JsonPropertyName("title_com.plexapp.android")]
-		public string? TitleComplexappandroid { get; init; }
-
 		[JsonPropertyName("total_media_session_count")]
 		public double? TotalMediaSessionCount { get; init; }
 
@@ -5958,6 +5967,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("voltage")]
 		public double? Voltage { get; init; }
+
+		[JsonPropertyName("walking")]
+		public double? Walking { get; init; }
 
 		[JsonPropertyName("wednesday")]
 		public object? Wednesday { get; init; }
