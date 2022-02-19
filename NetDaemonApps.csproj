@@ -11,8 +11,14 @@
     <ItemGroup>
       <Compile Remove="apps\SquiggleyApps\FlashLightOnMovementTest.cs" />
     </ItemGroup>
-    
-    <ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.Development.json">
+			<DependentUpon>appsettings.json</DependentUpon>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
         <None Update="$(MSBuildProjectDir)appsettings.Development.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
             <CopyToPublishDirectory>Never</CopyToPublishDirectory>
