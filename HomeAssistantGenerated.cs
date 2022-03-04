@@ -48,6 +48,8 @@ namespace HomeAssistantGenerated
 
 		NumberEntities Number { get; }
 
+		PersistentNotificationEntities PersistentNotification { get; }
+
 		PersonEntities Person { get; }
 
 		RemoteEntities Remote { get; }
@@ -105,6 +107,7 @@ namespace HomeAssistantGenerated
 		public LightEntities Light => new(_haContext);
 		public MediaPlayerEntities MediaPlayer => new(_haContext);
 		public NumberEntities Number => new(_haContext);
+		public PersistentNotificationEntities PersistentNotification => new(_haContext);
 		public PersonEntities Person => new(_haContext);
 		public RemoteEntities Remote => new(_haContext);
 		public SceneEntities Scene => new(_haContext);
@@ -163,7 +166,7 @@ namespace HomeAssistantGenerated
 
 		///<summary>Backgarden: Turn on Lights When its Dark and the back door is opened</summary>
 		public AutomationEntity BackgardenTurnOnLightsWhenItsDarkAndTheBackDoorIsOpened => new(_haContext, "automation.backgarden_turn_on_lights_when_its_dark_and_the_back_door_is_opened");
-		///<summary>Bathroom: Turn On Lights When Bathroom Colour Switch Clicked</summary>
+		///<summary>Bathroom: Turn On Lights When Bathroom AlertColour Switch Clicked</summary>
 		public AutomationEntity BathroomTurnOnLightsWhenBathroomColourSwitchClicked => new(_haContext, "automation.bathroom_turn_on_lights_when_bathroom_colour_switch_clicked");
 		///<summary>Bathroom: Turn On Lights When Bathroom White Switch Clicked</summary>
 		public AutomationEntity BathroomTurnOnLightsWhenBathroomSwitchOneClicked2 => new(_haContext, "automation.bathroom_turn_on_lights_when_bathroom_switch_one_clicked_2");
@@ -217,6 +220,8 @@ namespace HomeAssistantGenerated
 		public AutomationEntity CctvMotionDetectedInTheSquirrelyPalace => new(_haContext, "automation.cctv_motion_detected_in_the_squirrely_palace");
 		///<summary>Common Lights: Toggle Common Lights When Bathroom Button 2 is Clicked</summary>
 		public AutomationEntity CommonLightsToggleCommonLightsWhenBathroomButton2IsClicked => new(_haContext, "automation.common_lights_toggle_common_lights_when_bathroom_button_2_is_clicked");
+		///<summary>Dark Outside: Close curtains</summary>
+		public AutomationEntity DarkOutsideCloseCurtains => new(_haContext, "automation.dark_outside_close_curtains");
 		///<summary>Toilet: Dim lights based on sun elevation</summary>
 		public AutomationEntity DimLightsBasedOnSunElevation => new(_haContext, "automation.dim_lights_based_on_sun_elevation");
 		///<summary>DoorBell: Flash Lights when Boolean is true</summary>
@@ -293,6 +298,8 @@ namespace HomeAssistantGenerated
 		public AutomationEntity LightingIsItDarkOutside => new(_haContext, "automation.lighting_is_it_dark_outside");
 		///<summary>Lighting: Is it Light Outside?</summary>
 		public AutomationEntity LightingIsItLightOutside => new(_haContext, "automation.lighting_is_it_light_outside");
+		///<summary>Livingroom: Calibrate curtain</summary>
+		public AutomationEntity LivingroomCalibrateCurtain => new(_haContext, "automation.livingroom_calibrate_curtain");
 		///<summary>Livingroom: Toggle Ceiling lights</summary>
 		public AutomationEntity LivingroomCeilingLightSwitch => new(_haContext, "automation.livingroom_ceiling_light_switch");
 		///<summary>Livingroom: Kodi Decrease Volume</summary>
@@ -315,6 +322,8 @@ namespace HomeAssistantGenerated
 		public AutomationEntity LivingroomSwitchProfileToSquiggley => new(_haContext, "automation.livingroom_switch_profile_to_squiggley");
 		///<summary>Livingroom: Toggle Ceiling lights (White)</summary>
 		public AutomationEntity LivingroomToggleCeilingLightsWhite => new(_haContext, "automation.livingroom_toggle_ceiling_lights_white");
+		///<summary>Livingroom: Toggle Curtains</summary>
+		public AutomationEntity LivingroomToggleCurtains => new(_haContext, "automation.livingroom_toggle_curtains");
 		///<summary>Livingroom: Toggle Lamps (Red)</summary>
 		public AutomationEntity LivingroomToggleLampsRed => new(_haContext, "automation.livingroom_toggle_lamps_red");
 		///<summary>Livingroom: Toggle Stupid Box</summary>
@@ -351,8 +360,6 @@ namespace HomeAssistantGenerated
 		public AutomationEntity MovieNightZaphodMoviePlaying => new(_haContext, "automation.movie_night_zaphod_movie_playing");
 		///<summary>Office: Turn off stars when spotlight is turned on</summary>
 		public AutomationEntity NewAutomation => new(_haContext, "automation.new_automation");
-		///<summary>New Automation</summary>
-		public AutomationEntity NewAutomation2 => new(_haContext, "automation.new_automation_2");
 		///<summary>Notifications: Turn Off Squirrel Notifications when back door is opened</summary>
 		public AutomationEntity NotificationsTurnOffSquirrelNotificationsWhenBackDoorIsOpened2 => new(_haContext, "automation.notifications_turn_off_squirrel_notifications_when_back_door_is_opened_2");
 		///<summary>Notifications: Turn On Squirrel Notifications when back door is Closed</summary>
@@ -391,6 +398,14 @@ namespace HomeAssistantGenerated
 		public AutomationEntity OfficeTurnOnOfficeCeilingOneFourWhenOfficeSwitchOneClicked => new(_haContext, "automation.office_turn_on_office_ceiling_one_four_when_office_switch_one_clicked");
 		///<summary>Office: Turn on Office Ceiling Two & Three When Office Switch Two Clicked</summary>
 		public AutomationEntity OfficeTurnOnOfficeCeilingTwoThreeWhenOfficeSwitchTwoClicked => new(_haContext, "automation.office_turn_on_office_ceiling_two_three_when_office_switch_two_clicked");
+		///<summary>Office: Wall Switch - Make it smelly</summary>
+		public AutomationEntity OfficeWallSwitchMakeItSmelly => new(_haContext, "automation.office_wall_switch_make_it_smelly");
+		///<summary>Office: Wall Switch - Turn on Back Lights  </summary>
+		public AutomationEntity OfficeWallSwitchTurnOnBackLights => new(_haContext, "automation.office_wall_switch_turn_on_back_lights");
+		///<summary>Office: Wall Switch - Turn on Stars </summary>
+		public AutomationEntity OfficeWallSwitchTurnOnStars => new(_haContext, "automation.office_wall_switch_turn_on_stars");
+		///<summary>Office: Wall Switch - Turn on Window Lights </summary>
+		public AutomationEntity OfficeWallSwitchTurnOnWindowLights => new(_haContext, "automation.office_wall_switch_turn_on_window_lights");
 		///<summary>Packages: Notify Squiggley on Package Status Change</summary>
 		public AutomationEntity PackagesNotifySquiggleyOnPackageStatusChange => new(_haContext, "automation.packages_notify_squiggley_on_package_status_change");
 		///<summary>Rubbish: Reset Landfill Dismissed</summary>
@@ -481,7 +496,7 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity BackGardenMotionUpdateAvailable => new(_haContext, "binary_sensor.back_garden_motion_update_available");
 		///<summary>Back Nut Hut Lid_contact</summary>
 		public BinarySensorEntity BackNutHutLidContact => new(_haContext, "binary_sensor.back_nut_hut_lid_contact");
-		///<summary>Bathroom Colour Light Switch contact</summary>
+		///<summary>Bathroom AlertColour Light Switch contact</summary>
 		public BinarySensorEntity BathroomColourLightSwitchContact => new(_haContext, "binary_sensor.bathroom_colour_light_switch_contact");
 		///<summary>Bathroom Window Sensor_contact</summary>
 		public BinarySensorEntity BathroomWindowSensorContact => new(_haContext, "binary_sensor.bathroom_window_sensor_contact");
@@ -627,8 +642,8 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity ServerFanButton => new(_haContext, "binary_sensor.server_fan_button");
 		///<summary>Server Fan Running</summary>
 		public BinarySensorEntity ServerFanRunning => new(_haContext, "binary_sensor.server_fan_running");
-		///<summary>Skylight Window contact</summary>
-		public BinarySensorEntity SkylightWindowContact => new(_haContext, "binary_sensor.skylight_window_contact");
+		///<summary>Skylight Window Contact contact</summary>
+		public BinarySensorEntity SkylightWindowContactContact => new(_haContext, "binary_sensor.skylight_window_contact_contact");
 		///<summary>Slow Cooker Button</summary>
 		public BinarySensorEntity SlowCookerButton => new(_haContext, "binary_sensor.slow_cooker_button");
 		///<summary>BigSquigglePad is Charging</summary>
@@ -798,7 +813,6 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		public CoverEntity Curtain158d0002b330f7 => new(_haContext, "cover.curtain_158d0002b330f7");
 		///<summary>Livingroom Curtain</summary>
 		public CoverEntity LivingroomCurtain => new(_haContext, "cover.livingroom_curtain");
 	}
@@ -883,6 +897,8 @@ namespace HomeAssistantGenerated
 
 		///<summary>Accuweather Logging</summary>
 		public InputBooleanEntity AccuweatherLogging => new(_haContext, "input_boolean.accuweather_logging");
+		///<summary>Curtain Calibration</summary>
+		public InputBooleanEntity ActivateCurtainCalibration => new(_haContext, "input_boolean.activate_curtain_calibration");
 		///<summary>Airvisual Logging</summary>
 		public InputBooleanEntity AirvisualLogging => new(_haContext, "input_boolean.airvisual_logging");
 		///<summary>Alarm_Control Panel Logging</summary>
@@ -965,6 +981,8 @@ namespace HomeAssistantGenerated
 		public InputBooleanEntity DevNetdaemonDebugHostAppsExtensionsMqttEntityManagerApp => new(_haContext, "input_boolean.dev_netdaemon_debug_host_apps_extensions_mqtt_entity_manager_app");
 		///<summary>dev_netdaemon_net_daemon_apps_apps_squiggley_apps_flash_light_on_movement</summary>
 		public InputBooleanEntity DevNetdaemonNetDaemonAppsAppsSquiggleyAppsFlashLightOnMovement => new(_haContext, "input_boolean.dev_netdaemon_net_daemon_apps_apps_squiggley_apps_flash_light_on_movement");
+		///<summary>dev_netdaemon_net_daemon_apps_apps_squiggley_apps_light_on_test</summary>
+		public InputBooleanEntity DevNetdaemonNetDaemonAppsAppsSquiggleyAppsLightOnTest => new(_haContext, "input_boolean.dev_netdaemon_net_daemon_apps_apps_squiggley_apps_light_on_test");
 		///<summary>Device Tracker Logging</summary>
 		public InputBooleanEntity DeviceTrackerLogging => new(_haContext, "input_boolean.device_tracker_logging");
 		///<summary>Door Bell Pressed</summary>
@@ -1270,7 +1288,7 @@ namespace HomeAssistantGenerated
 		public InputNumberEntity BedroomTemperature => new(_haContext, "input_number.bedroom_temperature");
 		///<summary>Dark Outside Brightness</summary>
 		public InputNumberEntity DarkOutsideBrightness => new(_haContext, "input_number.dark_outside_brightness");
-		///<summary>Colour</summary>
+		///<summary>AlertColour</summary>
 		public InputNumberEntity InputColor => new(_haContext, "input_number.input_color");
 		///<summary>Kitchen Boost</summary>
 		public InputNumberEntity KitchenBoost => new(_haContext, "input_number.kitchen_boost");
@@ -1965,7 +1983,7 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity PlexPlexWebMicrosoftEdge3 => new(_haContext, "media_player.plex_plex_web_microsoft_edge_3");
 		///<summary>Plex (Squiggley - Plex Web - Microsoft Edge - Android)</summary>
 		public MediaPlayerEntity PlexPlexWebMicrosoftEdgeAndroid => new(_haContext, "media_player.plex_plex_web_microsoft_edge_android");
-		///<summary>Plex (Plex Web - Microsoft Edge - Windows)</summary>
+		///<summary>Plex (Plex Web - Microsoft Edge)</summary>
 		public MediaPlayerEntity PlexPlexWebMicrosoftEdgeWindows => new(_haContext, "media_player.plex_plex_web_microsoft_edge_windows");
 		///<summary>Plex (Plex Web - Safari)</summary>
 		public MediaPlayerEntity PlexPlexWebSafari => new(_haContext, "media_player.plex_plex_web_safari");
@@ -1977,6 +1995,8 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity PlexPlexampAndroid3 => new(_haContext, "media_player.plex_plexamp_android_3");
 		///<summary>Plex (Plexamp - Golgafrincham)</summary>
 		public MediaPlayerEntity PlexPlexampGolgafrincham => new(_haContext, "media_player.plex_plexamp_golgafrincham");
+		///<summary>Plex (Plexamp - Golgafrincham)</summary>
+		public MediaPlayerEntity PlexPlexampGolgafrincham2 => new(_haContext, "media_player.plex_plexamp_golgafrincham_2");
 		///<summary>Plex (renaroomartin@yahoo.co.uk - Plex Cast - Chromecast)</summary>
 		public MediaPlayerEntity PlexRenaroomartinYahooCoUkPlexCastChromecast => new(_haContext, "media_player.plex_renaroomartin_yahoo_co_uk_plex_cast_chromecast");
 		///<summary>Plex (renaroomartin@yahoo.co.uk - Plex Web - Chrome - Android)</summary>
@@ -2109,6 +2129,18 @@ namespace HomeAssistantGenerated
 		public NumberEntity GardenSquirrelMotionOccupancyTimeout => new(_haContext, "number.garden_squirrel_motion_occupancy_timeout");
 		///<summary>Kaggi II volume</summary>
 		public NumberEntity KaggiIiVolume => new(_haContext, "number.kaggi_ii_volume");
+	}
+
+	public class PersistentNotificationEntities
+	{
+		private readonly IHaContext _haContext;
+		public PersistentNotificationEntities(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>New devices discovered</summary>
+		public PersistentNotificationEntity ConfigEntryDiscovery => new(_haContext, "persistent_notification.config_entry_discovery");
 	}
 
 	public class PersonEntities
@@ -2371,11 +2403,11 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity BathroomCeilingOneWifi => new(_haContext, "sensor.bathroom_ceiling_one_wifi");
 		///<summary>bathroom_ceiling_two Wifi</summary>
 		public NumericSensorEntity BathroomCeilingTwoWifi => new(_haContext, "sensor.bathroom_ceiling_two_wifi");
-		///<summary>Bathroom Colour Light Switch battery</summary>
+		///<summary>Bathroom AlertColour Light Switch battery</summary>
 		public NumericSensorEntity BathroomColourLightSwitchBattery => new(_haContext, "sensor.bathroom_colour_light_switch_battery");
-		///<summary>Bathroom Colour Light Switch linkquality</summary>
+		///<summary>Bathroom AlertColour Light Switch linkquality</summary>
 		public NumericSensorEntity BathroomColourLightSwitchLinkquality => new(_haContext, "sensor.bathroom_colour_light_switch_linkquality");
-		///<summary>Bathroom Colour Light Switch voltage</summary>
+		///<summary>Bathroom AlertColour Light Switch voltage</summary>
 		public NumericSensorEntity BathroomColourLightSwitchVoltage => new(_haContext, "sensor.bathroom_colour_light_switch_voltage");
 		///<summary>Bathroom Wall Switch battery</summary>
 		public NumericSensorEntity BathroomWallSwitchBattery => new(_haContext, "sensor.bathroom_wall_switch_battery");
@@ -2781,6 +2813,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity OfficeSwitchTwoVoltage => new(_haContext, "sensor.office_switch_two_voltage");
 		///<summary>Target Temperature</summary>
 		public NumericSensorEntity OfficeTargetTemperature => new(_haContext, "sensor.office_target_temperature");
+		///<summary>Office Wall Switch battery</summary>
+		public NumericSensorEntity OfficeWallSwitchBattery => new(_haContext, "sensor.office_wall_switch_battery");
 		///<summary>Office Window Sensor One voltage</summary>
 		public NumericSensorEntity OfficeWindowSensorOneVoltage => new(_haContext, "sensor.office_window_sensor_one_voltage");
 		///<summary>Office Window Sensor Two voltage</summary>
@@ -2899,12 +2933,12 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity ServerRoomThermometerTemperature => new(_haContext, "sensor.server_room_thermometer_temperature");
 		///<summary>Server Room Thermometer voltage</summary>
 		public NumericSensorEntity ServerRoomThermometerVoltage => new(_haContext, "sensor.server_room_thermometer_voltage");
-		///<summary>Skylight Window battery</summary>
-		public NumericSensorEntity SkylightWindowBattery => new(_haContext, "sensor.skylight_window_battery");
-		///<summary>Skylight Window linkquality</summary>
-		public NumericSensorEntity SkylightWindowLinkquality => new(_haContext, "sensor.skylight_window_linkquality");
-		///<summary>Skylight Window voltage</summary>
-		public NumericSensorEntity SkylightWindowVoltage => new(_haContext, "sensor.skylight_window_voltage");
+		///<summary>Skylight Window Contact battery</summary>
+		public NumericSensorEntity SkylightWindowContactBattery => new(_haContext, "sensor.skylight_window_contact_battery");
+		///<summary>Skylight Window Contact linkquality</summary>
+		public NumericSensorEntity SkylightWindowContactLinkquality => new(_haContext, "sensor.skylight_window_contact_linkquality");
+		///<summary>Skylight Window Contact voltage</summary>
+		public NumericSensorEntity SkylightWindowContactVoltage => new(_haContext, "sensor.skylight_window_contact_voltage");
 		///<summary>Sleep Breath Average Yesterday</summary>
 		public NumericSensorEntity SleepBreathAverageYesterday => new(_haContext, "sensor.sleep_breath_average_yesterday");
 		///<summary>Resting Heart Rate Yesterday</summary>
@@ -3403,6 +3437,8 @@ namespace HomeAssistantGenerated
 		public SensorEntity OfficeControlSwitchAction => new(_haContext, "sensor.office_control_switch_action");
 		///<summary>Office Control Switch click</summary>
 		public SensorEntity OfficeControlSwitchClick => new(_haContext, "sensor.office_control_switch_click");
+		///<summary>Office Wall Switch action</summary>
+		public SensorEntity OfficeWallSwitchAction => new(_haContext, "sensor.office_wall_switch_action");
 		///<summary>Packets in eth0</summary>
 		public SensorEntity PacketsInEth0 => new(_haContext, "sensor.packets_in_eth0");
 		///<summary>Packets out eth0</summary>
@@ -4319,6 +4355,17 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public record PersistentNotificationEntity : Entity<PersistentNotificationEntity, EntityState<PersistentNotificationAttributes>, PersistentNotificationAttributes>
+	{
+		public PersistentNotificationEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public PersistentNotificationEntity(Entity entity) : base(entity)
+		{
+		}
+	}
+
 	public record PersonEntity : Entity<PersonEntity, EntityState<PersonAttributes>, PersonAttributes>
 	{
 		public PersonEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
@@ -4760,13 +4807,10 @@ namespace HomeAssistantGenerated
 		public string? LastSeen { get; init; }
 
 		[JsonPropertyName("linkquality")]
-		public object? Linkquality { get; init; }
+		public double? Linkquality { get; init; }
 
 		[JsonPropertyName("position")]
 		public double? Position { get; init; }
-
-		[JsonPropertyName("restored")]
-		public bool? Restored { get; init; }
 
 		[JsonPropertyName("running")]
 		public bool? Running { get; init; }
@@ -4996,12 +5040,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("color_mode")]
 		public string? ColorMode { get; init; }
 
-		[JsonPropertyName("color_temp")]
-		public double? ColorTemp { get; init; }
-
-		[JsonPropertyName("effect")]
-		public string? Effect { get; init; }
-
 		[JsonPropertyName("effect_list")]
 		public object? EffectList { get; init; }
 
@@ -5044,9 +5082,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("rgbw_color")]
 		public object? RgbwColor { get; init; }
 
-		[JsonPropertyName("rgbww_color")]
-		public object? RgbwwColor { get; init; }
-
 		[JsonPropertyName("supported_color_modes")]
 		public object? SupportedColorModes { get; init; }
 
@@ -5062,11 +5097,20 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("adb_response")]
 		public object? AdbResponse { get; init; }
 
+		[JsonPropertyName("app_id")]
+		public string? AppId { get; init; }
+
+		[JsonPropertyName("app_name")]
+		public string? AppName { get; init; }
+
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
 		[JsonPropertyName("entity_picture")]
 		public string? EntityPicture { get; init; }
+
+		[JsonPropertyName("entity_picture_local")]
+		public object? EntityPictureLocal { get; init; }
 
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
@@ -5087,7 +5131,10 @@ namespace HomeAssistantGenerated
 		public string? MediaArtist { get; init; }
 
 		[JsonPropertyName("media_content_id")]
-		public string? MediaContentId { get; init; }
+		public object? MediaContentId { get; init; }
+
+		[JsonPropertyName("media_content_rating")]
+		public string? MediaContentRating { get; init; }
 
 		[JsonPropertyName("media_content_type")]
 		public string? MediaContentType { get; init; }
@@ -5095,17 +5142,35 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("media_duration")]
 		public double? MediaDuration { get; init; }
 
+		[JsonPropertyName("media_episode")]
+		public double? MediaEpisode { get; init; }
+
+		[JsonPropertyName("media_library_title")]
+		public string? MediaLibraryTitle { get; init; }
+
 		[JsonPropertyName("media_position")]
 		public double? MediaPosition { get; init; }
 
 		[JsonPropertyName("media_position_updated_at")]
 		public string? MediaPositionUpdatedAt { get; init; }
 
+		[JsonPropertyName("media_season")]
+		public double? MediaSeason { get; init; }
+
+		[JsonPropertyName("media_series_title")]
+		public string? MediaSeriesTitle { get; init; }
+
+		[JsonPropertyName("media_summary")]
+		public string? MediaSummary { get; init; }
+
 		[JsonPropertyName("media_title")]
 		public string? MediaTitle { get; init; }
 
 		[JsonPropertyName("media_track")]
 		public double? MediaTrack { get; init; }
+
+		[JsonPropertyName("player_source")]
+		public string? PlayerSource { get; init; }
 
 		[JsonPropertyName("repeat")]
 		public string? Repeat { get; init; }
@@ -5115,6 +5180,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("shuffle")]
 		public bool? Shuffle { get; init; }
+
+		[JsonPropertyName("sound_mode")]
+		public string? SoundMode { get; init; }
 
 		[JsonPropertyName("sound_mode_list")]
 		public object? SoundModeList { get; init; }
@@ -5127,6 +5195,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
+
+		[JsonPropertyName("username")]
+		public string? Username { get; init; }
 
 		[JsonPropertyName("volume_level")]
 		public double? VolumeLevel { get; init; }
@@ -5193,6 +5264,18 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("update_available")]
 		public bool? UpdateAvailable { get; init; }
+	}
+
+	public record PersistentNotificationAttributes
+	{
+		[JsonPropertyName("friendly_name")]
+		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		[JsonPropertyName("title")]
+		public string? Title { get; init; }
 	}
 
 	public record PersonAttributes
@@ -5350,9 +5433,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("click")]
 		public object? Click { get; init; }
 
-		[JsonPropertyName("cnt")]
-		public double? Cnt { get; init; }
-
 		[JsonPropertyName("co")]
 		public double? Co { get; init; }
 
@@ -5434,14 +5514,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("linkquality")]
 		public double? Linkquality { get; init; }
 
-		[JsonPropertyName("marker_high_level")]
-		public double? MarkerHighLevel { get; init; }
-
-		[JsonPropertyName("marker_low_level")]
-		public double? MarkerLowLevel { get; init; }
-
-		[JsonPropertyName("marker_type")]
-		public string? MarkerType { get; init; }
+		[JsonPropertyName("mark+plex@scottishclimbs.com - Plex Web")]
+		public string? MarkplexscottishclimbscomPlexWeb { get; init; }
 
 		[JsonPropertyName("motion")]
 		public double? Motion { get; init; }
@@ -5457,9 +5531,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("occupancy_timeout")]
 		public double? OccupancyTimeout { get; init; }
-
-		[JsonPropertyName("opt")]
-		public double? Opt { get; init; }
 
 		[JsonPropertyName("ozone")]
 		public double? Ozone { get; init; }
@@ -5478,6 +5549,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("remaining")]
 		public double? Remaining { get; init; }
+
+		[JsonPropertyName("renaroomartin@yahoo.co.uk - Plex Web")]
+		public string? RenaroomartinyahoocoukPlexWeb { get; init; }
 
 		[JsonPropertyName("repositories")]
 		public object? Repositories { get; init; }
@@ -5501,7 +5575,7 @@ namespace HomeAssistantGenerated
 		public string? StateClass { get; init; }
 
 		[JsonPropertyName("status")]
-		public object? Status { get; init; }
+		public string? Status { get; init; }
 
 		[JsonPropertyName("sulfur_dioxide")]
 		public double? SulfurDioxide { get; init; }
@@ -5581,9 +5655,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("Battery State")]
 		public string? BatteryState { get; init; }
 
-		[JsonPropertyName("capa")]
-		public double? Capa { get; init; }
-
 		[JsonPropertyName("Carrier ID")]
 		public string? CarrierID { get; init; }
 
@@ -5598,9 +5669,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("click")]
 		public object? Click { get; init; }
-
-		[JsonPropertyName("command_set")]
-		public string? CommandSet { get; init; }
 
 		[JsonPropertyName("Confidence")]
 		public string? Confidence { get; init; }
@@ -5704,14 +5772,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("in_daylight_time")]
 		public bool? InDaylightTime { get; init; }
 
-		[JsonPropertyName("info")]
-		public string? Info { get; init; }
-
 		[JsonPropertyName("Inland Water")]
 		public string? InlandWater { get; init; }
-
-		[JsonPropertyName("in_vehicle")]
-		public double? InVehicle { get; init; }
 
 		[JsonPropertyName("is_hidden")]
 		public bool? IsHidden { get; init; }
@@ -5749,11 +5811,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("Local Time")]
 		public string? LocalTime { get; init; }
 
-		[JsonPropertyName("location")]
-		public string? Location_0 { get; init; }
-
 		[JsonPropertyName("Location")]
-		public object? Location_1 { get; init; }
+		public object? Location { get; init; }
 
 		[JsonPropertyName("Longitude")]
 		public double? Longitude { get; init; }
@@ -5785,32 +5844,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("Ocean")]
 		public string? Ocean { get; init; }
 
-		[JsonPropertyName("on_bicycle")]
-		public double? OnBicycle { get; init; }
-
-		[JsonPropertyName("on_foot")]
-		public double? OnFoot { get; init; }
-
-		[JsonPropertyName("opt")]
-		public double? Opt { get; init; }
-
 		[JsonPropertyName("options")]
 		public string? Options { get; init; }
 
 		[JsonPropertyName("Package")]
 		public string? Package { get; init; }
-
-		[JsonPropertyName("paper_size1")]
-		public double? PaperSize1 { get; init; }
-
-		[JsonPropertyName("paper_size2")]
-		public double? PaperSize2 { get; init; }
-
-		[JsonPropertyName("paper_type1")]
-		public double? PaperType1 { get; init; }
-
-		[JsonPropertyName("paper_type2")]
-		public double? PaperType2 { get; init; }
 
 		[JsonPropertyName("place_category")]
 		public string? PlaceCategory { get; init; }
@@ -5851,9 +5889,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("sensor_id")]
 		public string? SensorId { get; init; }
 
-		[JsonPropertyName("serial")]
-		public object? Serial { get; init; }
-
 		[JsonPropertyName("site_id")]
 		public string? SiteId { get; init; }
 
@@ -5881,17 +5916,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("state_class")]
 		public string? StateClass { get; init; }
 
-		[JsonPropertyName("state_message")]
-		public string? StateMessage { get; init; }
-
 		[JsonPropertyName("state_province")]
 		public string? StateProvince { get; init; }
-
-		[JsonPropertyName("state_reason")]
-		public object? StateReason { get; init; }
-
-		[JsonPropertyName("status")]
-		public double? Status { get; init; }
 
 		[JsonPropertyName("still")]
 		public double? Still { get; init; }
@@ -5953,9 +5979,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("unknown")]
 		public double? Unknown { get; init; }
 
-		[JsonPropertyName("uri_supported")]
-		public object? UriSupported { get; init; }
-
 		[JsonPropertyName("uses_daylight_time")]
 		public bool? UsesDaylightTime { get; init; }
 
@@ -5967,9 +5990,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("voltage")]
 		public double? Voltage { get; init; }
-
-		[JsonPropertyName("walking")]
-		public double? Walking { get; init; }
 
 		[JsonPropertyName("wednesday")]
 		public object? Wednesday { get; init; }
@@ -6082,14 +6102,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("editable")]
 		public bool? Editable { get; init; }
 
-		[JsonPropertyName("finishes_at")]
-		public string? FinishesAt { get; init; }
-
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
-
-		[JsonPropertyName("remaining")]
-		public string? Remaining { get; init; }
 	}
 
 	public record VacuumAttributes

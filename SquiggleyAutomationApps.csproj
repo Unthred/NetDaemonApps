@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <Compile Remove="apps\SquiggleyApps\FlashLightOnMovementTest.cs" />
+      <Compile Remove="apps\SquiggleyApps\LightOnTest.cs" />
     </ItemGroup>
 
 	<ItemGroup>
@@ -36,15 +37,25 @@
     </Target>
         
     <ItemGroup>
-        <PackageReference Include="JoySoftware.NetDaemon.AppModel" Version="22.6.3" />
-        <PackageReference Include="JoySoftware.NetDaemon.Runtime" Version="22.6.3" />
-        <PackageReference Include="JoySoftware.NetDaemon.HassModel" Version="22.6.3" />
-        <PackageReference Include="JoySoftware.NetDaemon.Client" Version="22.6.3" />
-        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Scheduling" Version="22.6.3" />
-        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Logging" Version="22.6.3" />
-        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Tts" Version="22.6.3" />
+        <PackageReference Include="JoySoftware.NetDaemon.AppModel" Version="22.7.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Runtime" Version="22.7.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.HassModel" Version="22.7.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Client" Version="22.7.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Scheduling" Version="22.7.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Logging" Version="22.7.0" />
+        <PackageReference Include="JoySoftware.NetDaemon.Extensions.Tts" Version="22.7.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+        <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
         <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
         <PackageReference Include="System.Reactive" Version="5.0.0" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+        
+    <ItemGroup>
+      <Folder Include="tests\" />
     </ItemGroup>
 </Project>
