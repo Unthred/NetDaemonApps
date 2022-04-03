@@ -1,23 +1,25 @@
 ﻿using System.Collections.Concurrent;
-using HomeAssistantGenerated;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading;
+using HomeAssistantGenerated;
 using NetDaemon.HassModel.Entities;
+using NetDaemonApps.apps.Helpers;
 using NetDaemonApps.apps.Models;
 
-namespace NetDaemonApps.apps.SquiggleyApps;
+namespace NetDaemonApps.apps.LightNotification;
 
 /// <summary>
 /// To detect movement in the garden and flash a light briefly to signify where in the garden the movement is.
 /// Primarily for detecting the squirrels that visit us 
 /// </summary>
+[Focus]
 [NetDaemonApp]
 public class FlashLightOnMovement
 {
     private static bool _processingNotifications;
     private static readonly List<LightState> RestoreLightStates = new();
-    private static readonly ConcurrentQueue<NotificationFlash> NotificationQueue = new();
+    private static readonly ConcurrentQueue<FlashNotification> NotificationQueue = new();
     private static readonly XyColourValue ErrorColour = new()
     {
         // Using White as an error colour
@@ -25,54 +27,37 @@ public class FlashLightOnMovement
         y = (float) -0.329
     };
 
-    public FlashLightOnMovement(IHaContext ha, ILogger<FlashLightOnMovement> logger)
+    public FlashLightOnMovement(IHaContext ha, ILogger<FlashLightOnMovement> logger, IAppConfig<FlashNotificationTest> config)
     {
         var entities = new Entities(ha);
-
-        var notificationLights = new List<LightEntity>
-        {
-            entities.Light.InfinityLamp,
-            entities.Light.DiningCeilingTwo,
-            entities.Light.WeeBearCeilingFour,
-            entities.Light.DoorLamp,
-        };
-        // Alert colours depending on which motion sensor set it off
-        var notificationList = new Dictionary<BinarySensorEntity, NotificationFlash>
-        {
-            {entities.BinarySensor.FrontGateMotionOccupancy, new NotificationFlash(notificationLights, "green")},
-            {entities.BinarySensor.GardenSquirrelMotionOccupancy, new NotificationFlash(notificationLights, "blue")},
-            {entities.BinarySensor.BackGardenMotionOccupancy, new NotificationFlash(notificationLights, "orange")},
-            {entities.BinarySensor.GarageRoofMotionOccupancy, new NotificationFlash(notificationLights, "yellow")},
-
-        };
-
-        NotifyOnMovement(notificationList, logger);
+        var test = new FlashNotificationConfig();
+        //NotifyOnMovement(config.Value.FlashNotifications ?? throw new NullReferenceException("Config FlashNotifications is null"), logger);
+        NotifyOnMovement(test.FlashNotifications ?? throw new NullReferenceException("Config FlashNotifications is null"), logger);
     }
 
-    private static void NotifyOnMovement(Dictionary<BinarySensorEntity, NotificationFlash> notificationList, ILogger<FlashLightOnMovement> logger)
+    private static void NotifyOnMovement(IEnumerable<FlashNotification> flashNotifications, ILogger<FlashLightOnMovement> logger)
     {
         // Register state change event for each motion sensor
-        foreach (var motionSensor in notificationList.Keys)
+        foreach (var flashNotification in flashNotifications)
         {
-            motionSensor.StateChanges()
+            flashNotification.MotionSensor.StateChanges()
                 .Where(e => e.New?.State == "on")
                 .Subscribe(_ =>
-                {
-                    if (notificationList.TryGetValue(motionSensor, out var notificationFlash))
-                        FlashLights(notificationFlash, logger);
+                { 
+                    FlashLights(flashNotification, logger);
                 });
         }
     }
 
-    private static void FlashLights(NotificationFlash notification, ILogger<FlashLightOnMovement> logger)
+    private static void FlashLights(FlashNotification flashNotification, ILogger<FlashLightOnMovement> logger)
     {
         logger.LogDebug("FlashLights entered");
         if (!_processingNotifications && NotificationQueue.IsEmpty)
         {
             logger.LogDebug("Not processing notifications and Notification queue is EMPTY!");
             RestoreLightStates.Clear();
-            // If the alert queue is empty then we need to save the state of the notification lights
-            foreach (var light in notification.NotificationLights)
+            // If the alert queue is empty then we need to save the state of the flashNotification lights
+            foreach (var light in flashNotification.LightEntities)
             {
                 var restoreLight = new LightState(light);
                 logger.LogDebug("=============Saving Light State ====================");
@@ -101,8 +86,8 @@ public class FlashLightOnMovement
             }
         }
 
-        logger.LogDebug($"Adding notification to queue {NotificationQueue.Count} items");
-        NotificationQueue.Enqueue(notification);
+        logger.LogDebug($"Adding flashNotification to queue {NotificationQueue.Count} items");
+        NotificationQueue.Enqueue(flashNotification);
 
         if (!NotificationQueue.IsEmpty)
         {
@@ -110,8 +95,8 @@ public class FlashLightOnMovement
             _processingNotifications = true;
             while (!NotificationQueue.IsEmpty)
             {
-                if (NotificationQueue.TryDequeue(out var notificationFlash))
-                    FlashNotification(notificationFlash, logger);
+                if (NotificationQueue.TryDequeue(out var notification))
+                    FlashNotification(notification, logger);
             }
 
             logger.LogDebug($"Restoring original state of lights Notification Queue {NotificationQueue.Count}");
@@ -129,7 +114,7 @@ public class FlashLightOnMovement
         foreach (var light in RestoreLightStates)
         {
             logger.LogDebug($"Restoring {light.LightEntity.Attributes?.FriendlyName} colour to {light.SavedAttributes.Color}");
-            light.LightEntity.TurnOn(CalcTurnOnParameters(light, logger));
+            light.LightEntity.TurnOn(CalculateTurnOnParameters(light, logger));
 
             if (!light.IsOn)
             {
@@ -140,12 +125,12 @@ public class FlashLightOnMovement
 
     }
 
-    private static void FlashNotification(NotificationFlash notification, ILogger<FlashLightOnMovement> logger)
+    private static void FlashNotification(FlashNotification notification, ILogger<FlashLightOnMovement> logger)
     {
-        foreach (var light in notification.NotificationLights)
+        foreach (var light in notification.LightEntities)
         {
-            logger.LogDebug($"Flashing Notification on light {light.Attributes?.FriendlyName} colour to {notification.NotificationColour}");
-            light.TurnOn(brightness: notification.NotificationBrightness, colorName: notification.NotificationColour);
+            logger.LogDebug($"Flashing Notification on light {light.Attributes?.FriendlyName} colour to {notification.Colour}");
+            light.TurnOn(brightness: notification.Brightness, colorName: notification.Colour);
         }
         Thread.Sleep(notification.Duration);
     }
@@ -156,7 +141,7 @@ public class FlashLightOnMovement
     /// <param name="light"></param>
     /// <param name="logger"></param>
     /// <returns></returns>
-    private static LightTurnOnParameters CalcTurnOnParameters(LightState light, ILogger logger)
+    private static LightTurnOnParameters CalculateTurnOnParameters(LightState light, ILogger logger)
     {
         if (light.IsOn)
         {

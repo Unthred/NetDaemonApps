@@ -1,0 +1,41 @@
+﻿FlashNotificationConfig:
+  - name: "Front Gate Notification"
+    motion_sensor: binary_sensor.FrontGateMotionOccupancy
+    colour: green
+    duration: 500
+    brightness: 255
+    light_entities:
+    - light.InfinityLamp
+    - light.DiningCeilingTwo
+    - light.WeeBearCeilingFour
+    - light.DoorLamp
+  - name: "Office window Notification"
+    motion_sensor: binary_sensor.GardenSquirrelMotionOccupancy
+    colour: blue
+    duration: 500
+    brightness: 255
+    light_entities:
+    - light.InfinityLamp
+    - light.DiningCeilingTwo
+    - light.WeeBearCeilingFour
+    - light.DoorLamp
+  - name: "Back Garden Notification"
+    motion_sensor: binary_sensor.BackGardenMotionOccupancy
+    colour: organge
+    duration: 500
+    brightness: 255
+    light_entities:
+    - light.InfinityLamp
+    - light.DiningCeilingTwo
+    - light.WeeBearCeilingFour
+    - light.DoorLamp
+  - name: "Garage Roof Notification"
+    motion_sensor: binary_sensor.GarageRoofMotionOccupancy
+    colour: yellow
+    duration: 500
+    brightness: 255
+    light_entities:
+    - light.InfinityLamp
+    - light.DiningCeilingTwo
+    - light.WeeBearCeilingFour
+    - light.DoorLamp
