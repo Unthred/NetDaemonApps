@@ -13,12 +13,12 @@ namespace NetDaemonApps.apps.Helpers
         public string? Name { get; set; }
         public BinarySensorEntity? MotionSensor { get; set; }
         public string? Colour { get; set; }
-        public int Duration { get; set; }
         public int Brightness { get; set; }
-        public List<LightEntity>? LightEntities { get; set; }
     }
     public class FlashNotificationConfig
     {
-        public IList<FlashNotification>? FlashNotifications { get; set; }  
+        public int NotificationDuration { get; set; }
+        public IList<FlashNotification>? FlashNotifications { get; set; }
+        public List<LightEntity> Lights { get; set; }
     }
 }

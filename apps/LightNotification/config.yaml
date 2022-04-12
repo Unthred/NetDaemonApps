@@ -1,0 +1,25 @@
+﻿NetDaemonApps.apps.Helpers.FlashNotificationConfig:
+  NotificationDuration: 2000
+  Lights:
+    - light.infinity_lamp
+    - light.dining_ceiling_two
+    - light.wee_bear_ceiling_four
+    - light.door_lamp
+  FlashNotifications:
+    - name: "Front Gate Notification"
+      motionsensor: binary_sensor.front_gate_motion_occupancy
+      colour: green
+      brightness: 255
+    - name: "Castle Notification"
+      motionsensor: binary_sensor.castle_motion_occupancy
+      colour: blue
+      brightness: 255
+    - name: "Back Garden Notification"
+      motionsensor: binary_sensor.back_garden_motion_occupancy
+      colour: orange
+      brightness: 255
+    - name: "Garage Roof Notification"
+      motionsensor: binary_sensor.garage_roof_motion_occupancy
+      colour: red
+      brightness: 255
+  
